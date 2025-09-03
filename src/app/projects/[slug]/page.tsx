@@ -4,21 +4,23 @@ import { notFound } from "next/navigation";
 import { projects } from "@/data/projects";
 
 type Params = {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 };
 
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
 }
 
-export function generateMetadata({ params }: Params): Metadata {
-  const project = projects.find((p) => p.slug === params.slug);
+export async function generateMetadata({ params }: Params): Promise<Metadata> {
+  const { slug } = await params;
+  const project = projects.find((p) => p.slug === slug);
   if (!project) return { title: "Project not found" };
   return { title: `${project.title} | Project` };
 }
 
-export default function ProjectDetailPage({ params }: Params) {
-  const project = projects.find((p) => p.slug === params.slug);
+export default async function ProjectDetailPage({ params }: Params) {
+  const { slug } = await params;
+  const project = projects.find((p) => p.slug === slug);
   if (!project) return notFound();
   return (
     <main className="mx-auto max-w-3xl px-4 py-12 md:py-16">
