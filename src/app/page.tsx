@@ -4,6 +4,7 @@ import ClubCard from "@/components/ClubCard";
 import Card from "@/components/Card";
 import { projects } from "@/data/projects";
 
+// Home page
 export default function Home() {
   return (
     <main id="top" className="mx-auto max-w-5xl px-4 py-12 md:py-16">
