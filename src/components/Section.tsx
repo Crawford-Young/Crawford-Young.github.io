@@ -1,18 +1,31 @@
+import { cn } from "@/lib/utils";
+
 type SectionProps = {
   id?: string;
   title?: string;
   subtitle?: string;
   children: React.ReactNode;
+  className?: string;
 };
 
-export default function Section({ id, title, subtitle, children }: SectionProps) {
+export default function Section({
+  id,
+  title,
+  subtitle,
+  children,
+  className,
+}: SectionProps) {
   return (
-    <section id={id} className="py-14 md:py-16 scroll-mt-24">
+    <section id={id} className={cn("py-16 md:py-20 scroll-mt-24", className)}>
       {title && (
-        <div className="mb-6">
-          <h2 className="text-[22px] md:text-[28px] font-semibold tracking-[-0.02em]">{title}</h2>
+        <div className="mb-8">
+          <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-foreground">
+            {title}
+          </h2>
           {subtitle && (
-            <p className="mt-2 text-foreground/70 text-[15px] md:text-[16px]">{subtitle}</p>
+            <p className="mt-3 text-muted-foreground text-base md:text-lg leading-relaxed">
+              {subtitle}
+            </p>
           )}
         </div>
       )}
@@ -20,5 +33,3 @@ export default function Section({ id, title, subtitle, children }: SectionProps)
     </section>
   );
 }
-
-

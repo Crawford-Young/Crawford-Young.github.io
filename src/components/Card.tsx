@@ -1,24 +1,32 @@
 import type React from "react";
+import { cn } from "@/lib/utils";
 
 type CardProps = {
   children: React.ReactNode;
   as?: React.ElementType;
   href?: string;
+  className?: string;
 };
 
-export default function Card({ children, as: Tag = "div", href }: CardProps) {
-  const className =
-    "group rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] transition-colors" +
-    " shadow-[0_0_0_1px_rgba(255,255,255,0.03)_inset,0_10px_30px_-15px_rgba(0,0,0,0.6)]" +
-    " backdrop-blur px-5 py-4";
+export default function Card({
+  children,
+  as: Tag = "div",
+  href,
+  className,
+}: CardProps) {
+  const baseClassName = cn(
+    "group rounded-xl border border-border/50 bg-card/50 hover:bg-card/80 transition-all duration-300",
+    "shadow-sm hover:shadow-md backdrop-blur-sm px-6 py-5",
+    "hover:border-border/80 hover:scale-[1.02]",
+    className
+  );
+
   if (href && Tag === "a") {
     return (
-      <a className={className} href={href}>
+      <a className={baseClassName} href={href}>
         {children}
       </a>
     );
   }
-  return <Tag className={className}>{children}</Tag>;
+  return <Tag className={baseClassName}>{children}</Tag>;
 }
-
-

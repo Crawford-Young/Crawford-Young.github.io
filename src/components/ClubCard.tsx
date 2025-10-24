@@ -1,4 +1,5 @@
 import Card from "./Card";
+import { Badge } from "@/components/ui/badge";
 
 type ClubCardProps = {
   name: string;
@@ -8,15 +9,19 @@ type ClubCardProps = {
 export default function ClubCard({ name, role }: ClubCardProps) {
   return (
     <Card>
-      <div className="flex items-center justify-between">
-        <div>
-          <h3 className="font-medium tracking-[-0.01em]">{name}</h3>
-          {role && <p className="text-sm text-foreground/70 mt-1">{role}</p>}
+      <div className="flex items-start justify-between">
+        <div className="flex-1">
+          <h3 className="font-medium tracking-tight text-foreground">{name}</h3>
+          {role && (
+            <p className="text-sm text-muted-foreground mt-1.5 leading-relaxed">
+              {role}
+            </p>
+          )}
         </div>
-        <span className="text-xs text-foreground/50">Club</span>
+        <Badge variant="secondary" className="ml-3 text-xs">
+          Club
+        </Badge>
       </div>
     </Card>
   );
 }
-
-

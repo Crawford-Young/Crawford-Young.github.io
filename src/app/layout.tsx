@@ -15,7 +15,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Crawford Young | Portfolio",
-  description: "Personal website: about, experience, projects, and contact information.",
+  description:
+    "Personal website: about, experience, projects, and contact information.",
   metadataBase: new URL("https://crawfordyoung.dev"),
 };
 
@@ -29,22 +30,52 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <header className="sticky top-0 z-10 bg-background/80 backdrop-blur border-b border-white/10">
-          <nav className="mx-auto max-w-5xl px-4 py-4 flex items-center justify-between">
-            <Link href="/" className="font-semibold tracking-tight">Crawford Young</Link>
-            <div className="flex gap-4 text-sm">
-              <Link href="/#about" className="hover:underline">About</Link>
-              <Link href="/#experience" className="hover:underline">Experience</Link>
-              <Link href="/projects" className="hover:underline">Projects</Link>
-              <Link href="/#contact" className="hover:underline">Contact</Link>
+        <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border/50">
+          <nav className="mx-auto max-w-6xl px-6 py-5 flex items-center justify-between">
+            <Link
+              href="/"
+              className="font-semibold tracking-tight text-lg hover:text-foreground/80 transition-colors"
+            >
+              Crawford Young
+            </Link>
+            <div className="hidden md:flex gap-8 text-sm font-medium">
+              <Link
+                href="/#about"
+                className="text-muted-foreground hover:text-foreground transition-colors duration-200"
+              >
+                About
+              </Link>
+              <Link
+                href="/#experience"
+                className="text-muted-foreground hover:text-foreground transition-colors duration-200"
+              >
+                Experience
+              </Link>
+              <Link
+                href="/projects"
+                className="text-muted-foreground hover:text-foreground transition-colors duration-200"
+              >
+                Projects
+              </Link>
+              <Link
+                href="/#contact"
+                className="text-muted-foreground hover:text-foreground transition-colors duration-200"
+              >
+                Contact
+              </Link>
             </div>
           </nav>
         </header>
         {children}
-        <footer className="mt-16 border-t border-white/10 py-8">
-          <div className="mx-auto max-w-5xl px-4 text-sm text-foreground/70 flex items-center justify-between">
+        <footer className="mt-20 border-t border-border/50 py-12">
+          <div className="mx-auto max-w-6xl px-6 text-sm text-muted-foreground flex items-center justify-between">
             <span>© {new Date().getFullYear()} Crawford Young</span>
-            <Link href="/#top" className="hover:underline">Back to top</Link>
+            <Link
+              href="/#top"
+              className="text-muted-foreground hover:text-foreground transition-colors duration-200"
+            >
+              Back to top
+            </Link>
           </div>
         </footer>
       </body>
