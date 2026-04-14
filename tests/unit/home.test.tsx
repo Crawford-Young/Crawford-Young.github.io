@@ -1,0 +1,43 @@
+import { describe, it, expect, vi } from 'vitest'
+import { render, screen } from '@testing-library/react'
+import HomePage from '@/app/page'
+
+vi.mock('next/image', () => ({
+  default: ({ alt, ...props }: { alt: string; [key: string]: unknown }) => <img alt={alt} {...props} />,
+}))
+vi.mock('@/components/effects/aurora', () => ({ Aurora: () => null }))
+vi.mock('@/components/effects/split-text', () => ({
+  SplitText: ({ text }: { text: string }) => <span>{text}</span>,
+}))
+vi.mock('@/components/effects/glow-card', () => ({
+  GlowCard: ({ children }: { children: React.ReactNode }) => <>{children}</>,
+}))
+vi.mock('@/components/effects/rotating-text', () => ({
+  RotatingText: ({ items }: { items: string[] }) => <span>{items[0]}</span>,
+}))
+vi.mock('@/components/effects/count-up', () => ({
+  CountUp: ({ to, suffix }: { to: number; suffix?: string }) => <span>{to}{suffix}</span>,
+}))
+
+describe('HomePage', () => {
+  it('renders hero name', () => {
+    render(<HomePage />)
+    expect(screen.getByText('Crawford Young')).toBeInTheDocument()
+  })
+  it('renders Aderant in role card', () => {
+    render(<HomePage />)
+    expect(screen.getAllByText(/Aderant/).length).toBeGreaterThan(0)
+  })
+  it('has contact email link', () => {
+    render(<HomePage />)
+    expect(screen.getByRole('link', { name: /email me/i })).toHaveAttribute('href', 'mailto:crawfordyoung248@gmail.com')
+  })
+  it('has link to hobbies', () => {
+    render(<HomePage />)
+    expect(screen.getByRole('link', { name: /explore/i })).toHaveAttribute('href', '/hobbies')
+  })
+  it('renders profile image', () => {
+    render(<HomePage />)
+    expect(screen.getByAltText('Crawford Young')).toBeInTheDocument()
+  })
+})
