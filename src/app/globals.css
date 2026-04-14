@@ -1,13 +1,13 @@
 @import "tailwindcss";
-@import "@cy/ui/styles.css";
+@import "@crawfordyoung/ui/styles.css";
 
 /* Class-based dark mode for next-themes */
 @variant dark (&:is(.dark, .dark *));
 
-/* Scan @cy/ui source for Tailwind class names */
-@source "../../node_modules/@cy/ui/src/**/*.{ts,tsx}";
+/* Scan @crawfordyoung/ui source for Tailwind class names */
+@source "../../node_modules/@crawfordyoung/ui/src/**/*.{ts,tsx}";
 
-/* Map @cy/ui CSS variables → Tailwind v4 utilities */
+/* Map @crawfordyoung/ui CSS variables → Tailwind v4 utilities */
 @theme inline {
   --color-background: rgb(var(--background));
   --color-foreground: rgb(var(--foreground));
