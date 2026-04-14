@@ -1,43 +1,46 @@
 @import "tailwindcss";
+@import "@cy/ui/styles.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* Class-based dark mode for next-themes */
+@variant dark (&:is(.dark, .dark *));
 
+/* Scan @cy/ui source for Tailwind class names */
+@source "../node_modules/@cy/ui/src/**/*.{ts,tsx}";
+
+/* Map @cy/ui CSS variables → Tailwind v4 utilities */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --color-background: rgb(var(--background));
+  --color-foreground: rgb(var(--foreground));
+  --color-surface: rgb(var(--surface));
+  --color-surface-raised: rgb(var(--surface-raised));
+  --color-border: rgb(var(--border));
+  --color-border-subtle: rgb(var(--border-subtle));
+  --color-input: rgb(var(--input));
+  --color-ring: rgb(var(--ring));
+  --color-muted: rgb(var(--muted));
+  --color-muted-foreground: rgb(var(--muted-foreground));
+  --color-accent: rgb(var(--accent));
+  --color-accent-foreground: rgb(var(--accent-foreground));
+  --color-destructive: rgb(var(--destructive));
+  --color-destructive-foreground: rgb(var(--destructive-foreground));
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-full: 9999px;
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-/* Subtle gradient and grid accents for Apple-like depth */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  background: radial-gradient(800px 400px at 50% -10%, rgba(255,255,255,0.06), transparent),
-    radial-gradient(600px 300px at 100% 10%, rgba(255,255,255,0.04), transparent),
-    radial-gradient(600px 300px at 0% 10%, rgba(255,255,255,0.04), transparent);
-  z-index: -1;
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
 }
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 72px; /* account for sticky header height */
+  scroll-padding-top: 80px;
+}
+
+body {
+  background-color: rgb(var(--background));
+  color: rgb(var(--foreground));
+  -webkit-font-smoothing: antialiased;
 }
