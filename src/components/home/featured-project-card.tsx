@@ -6,6 +6,7 @@ import { projects } from '@/data/projects'
 
 export function FeaturedProjectCard() {
   const project = projects[0]
+  if (!project) return null
   return (
     <GlowCard className="h-full">
       <Card className="h-full bg-surface border-border group">
