@@ -8,9 +8,9 @@ importers:
 
   .:
     dependencies:
-      '@cy/ui':
-        specifier: file:../component-library
-        version: file:../component-library(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(tailwindcss@4.2.2)
+      '@crawfordyoung/ui':
+        specifier: ^0.1.0
+        version: 0.1.0(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(tailwindcss@4.2.2)
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
@@ -195,8 +195,8 @@ packages:
     resolution: {integrity: sha512-6zABk/ECA/QYSCQ1NGiVwwbQerUCZ+TQbp64Q3AgmfNvurHH0j8TtXa1qbShXA6qqkpAj4V5W8pP6mLe1mcMqA==}
     engines: {node: '>=18'}
 
-  '@cy/ui@file:../component-library':
-    resolution: {directory: ../component-library, type: directory}
+  '@crawfordyoung/ui@0.1.0':
+    resolution: {integrity: sha512-UO08R2ZJyEbMdSVU4KfYhFKyvS4rn+GEbp3SYnZUW0AppSYuFKSDeqkkh/ruKIYtFHyxHJ/TPnsy8VtyYmXPzA==}
     peerDependencies:
       react: ^18 || ^19
       react-dom: ^18 || ^19
@@ -3087,7 +3087,7 @@ snapshots:
 
   '@bcoe/v8-coverage@1.0.2': {}
 
-  '@cy/ui@file:../component-library(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(tailwindcss@4.2.2)':
+  '@crawfordyoung/ui@0.1.0(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(tailwindcss@4.2.2)':
     dependencies:
       '@radix-ui/react-avatar': 1.1.11(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       '@radix-ui/react-label': 2.1.8(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
