@@ -18,6 +18,7 @@ export function CountUp({ to, suffix = '', duration = 1400, className }: CountUp
 
   useEffect(() => {
     if (reduced || started.current) return
+    let rafId = 0
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (!entry.isIntersecting || started.current) return
@@ -28,15 +29,18 @@ export function CountUp({ to, suffix = '', duration = 1400, className }: CountUp
           const p = Math.min((now - t0) / duration, 1)
           const eased = 1 - Math.pow(1 - p, 3)
           setValue(Math.round(eased * to))
-          if (p < 1) requestAnimationFrame(tick)
+          if (p < 1) rafId = requestAnimationFrame(tick)
         }
         setValue(0)
-        requestAnimationFrame(tick)
+        rafId = requestAnimationFrame(tick)
       },
       { threshold: 0.5 }
     )
     if (elRef.current) observer.observe(elRef.current)
-    return () => observer.disconnect()
+    return () => {
+      observer.disconnect()
+      cancelAnimationFrame(rafId)
+    }
   }, [to, duration, reduced])
 
   return <span ref={elRef} className={className}>{value}{suffix}</span>
