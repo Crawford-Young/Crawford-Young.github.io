@@ -9,11 +9,9 @@ export default defineConfig({
     globals: true,
     setupFiles: ['./tests/setup.ts'],
     include: ['tests/unit/**/*.test.{ts,tsx}'],
-    passWithNoTests: true,
     coverage: {
       provider: 'v8',
-      // Only report files imported by tests; prevents threshold failures when no tests exist yet
-      all: false,
+      include: ['src/lib/**/*.{ts,tsx}', 'src/data/**/*.{ts,tsx}'],
       thresholds: { statements: 100, branches: 100, functions: 100, lines: 100 },
     },
   },
