@@ -42,13 +42,11 @@ export const projects: Project[] = [
     title: 'AI Pacman',
     description: 'Pacman with AI agents using search algorithms and reinforcement learning for autonomous play.',
     tech: ['Python', 'AI/ML'],
-    repo: 'https://github.com/Crawford-Young',
   },
   {
     slug: 'html-idle-game',
     title: 'HTML Idle Game',
     description: 'Browser-based incremental game built with vanilla HTML, CSS, and JavaScript. No frameworks, no build step.',
     tech: ['HTML', 'CSS', 'JavaScript'],
-    repo: 'https://github.com/Crawford-Young',
   },
 ]
