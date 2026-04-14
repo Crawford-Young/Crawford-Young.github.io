@@ -21,8 +21,8 @@ export default function HomePage() {
           <BentoCell><FeaturedProjectCard /></BentoCell>
           <BentoCell><HobbiesTeaserCard /></BentoCell>
 
-          <BentoCell span="wide">
-            <div id="contact"><ContactCard /></div>
+          <BentoCell span="wide" id="contact">
+            <ContactCard />
           </BentoCell>
           <BentoCell><GitHubStatsCard /></BentoCell>
         </BentoGrid>

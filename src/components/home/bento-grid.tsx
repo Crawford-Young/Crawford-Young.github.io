@@ -12,13 +12,16 @@ export function BentoCell({
   children,
   className,
   span = 'default',
+  id,
 }: {
   children: React.ReactNode
   className?: string
   span?: 'default' | 'wide' | 'full'
+  id?: string
 }) {
   return (
     <div
+      id={id}
       className={cn(
         span === 'wide' && 'md:col-span-2',
         span === 'full' && 'col-span-full',
