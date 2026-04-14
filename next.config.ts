@@ -12,6 +12,8 @@ const nextConfig: NextConfig = {
   output: 'export',
   trailingSlash: true,
   images: { unoptimized: true },
+  // Note: headers() is ignored in static export (output: 'export') mode.
+  // These are documented here for reference; apply them at the CDN/hosting layer.
   async headers() {
     return [{ source: '/(.*)', headers: securityHeaders }]
   },
