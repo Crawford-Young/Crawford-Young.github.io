@@ -1,16 +1,42 @@
 import { describe, it, expect, vi } from 'vitest'
 import { render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import { PillNav } from '@/components/layout/nav'
 
 vi.mock('next/navigation', () => ({ usePathname: () => '/' }))
 
 describe('PillNav', () => {
-  it('renders all 5 nav links', () => {
+  it('renders the 5 nav links with correct hrefs', () => {
     render(<PillNav />)
-    expect(screen.getAllByRole('link', { name: 'Home' }).length).toBeGreaterThan(0)
-    expect(screen.getAllByRole('link', { name: 'Projects' }).length).toBeGreaterThan(0)
-    expect(screen.getAllByRole('link', { name: 'Hobbies' }).length).toBeGreaterThan(0)
-    expect(screen.getAllByRole('link', { name: 'Experience' }).length).toBeGreaterThan(0)
-    expect(screen.getAllByRole('link', { name: 'Contact' }).length).toBeGreaterThan(0)
+    const homeLinks = screen.getAllByRole('link', { name: 'Home' })
+    expect(homeLinks[0]).toHaveAttribute('href', '/')
+    const projectsLinks = screen.getAllByRole('link', { name: 'Projects' })
+    expect(projectsLinks[0]).toHaveAttribute('href', '/projects')
+    const hobbiesLinks = screen.getAllByRole('link', { name: 'Hobbies' })
+    expect(hobbiesLinks[0]).toHaveAttribute('href', '/hobbies')
+    const experienceLinks = screen.getAllByRole('link', { name: 'Experience' })
+    expect(experienceLinks[0]).toHaveAttribute('href', '/experience')
+    const contactLinks = screen.getAllByRole('link', { name: 'Contact' })
+    expect(contactLinks[0]).toHaveAttribute('href', '/#contact')
+  })
+
+  it('hamburger button opens and closes the mobile overlay', async () => {
+    const user = userEvent.setup()
+    render(<PillNav />)
+    const openBtn = screen.getByRole('button', { name: 'Open menu' })
+    await user.click(openBtn)
+    expect(screen.getByRole('button', { name: 'Close menu' })).toBeInTheDocument()
+    const closeBtn = screen.getByRole('button', { name: 'Close menu' })
+    await user.click(closeBtn)
+    expect(screen.getByRole('button', { name: 'Open menu' })).toBeInTheDocument()
+  })
+
+  it('Escape key closes the mobile overlay', async () => {
+    const user = userEvent.setup()
+    render(<PillNav />)
+    await user.click(screen.getByRole('button', { name: 'Open menu' }))
+    expect(screen.getByRole('button', { name: 'Close menu' })).toBeInTheDocument()
+    await user.keyboard('{Escape}')
+    expect(screen.getByRole('button', { name: 'Open menu' })).toBeInTheDocument()
   })
 })

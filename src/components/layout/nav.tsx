@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { useState } from 'react'
+import { useRef, useEffect, useState } from 'react'
 import { Menu, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
@@ -17,6 +17,20 @@ const NAV_LINKS = [
 export function PillNav() {
   const pathname = usePathname()
   const [open, setOpen] = useState(false)
+  const firstLinkRef = useRef<HTMLAnchorElement>(null)
+
+  useEffect(() => {
+    if (!open) return
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setOpen(false)
+    }
+    document.addEventListener('keydown', handler)
+    return () => document.removeEventListener('keydown', handler)
+  }, [open])
+
+  useEffect(() => {
+    if (open) firstLinkRef.current?.focus()
+  }, [open])
 
   const isActive = (href: string) =>
     href === '/' || href === '/#contact' ? pathname === '/' : pathname.startsWith(href)
@@ -58,11 +72,12 @@ export function PillNav() {
       {/* Mobile overlay */}
       {open && (
         <div className="fixed inset-0 z-40 md:hidden bg-background/95 backdrop-blur-md flex flex-col items-center justify-center gap-8">
-          {NAV_LINKS.map(({ href, label }) => (
+          {NAV_LINKS.map(({ href, label }, index) => (
             <Link
               key={href}
               href={href}
               onClick={() => setOpen(false)}
+              ref={index === 0 ? firstLinkRef : undefined}
               className="text-3xl font-bold tracking-tight hover:text-accent transition-colors"
             >
               {label}
