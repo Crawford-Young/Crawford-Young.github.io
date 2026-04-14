@@ -12,7 +12,7 @@ interface SplitTextProps {
 export function SplitText({ text, className, delay = 0 }: SplitTextProps) {
   const reduced = usePrefersReducedMotion()
 
-  if (reduced) return <span className={className}>{text}</span>
+  if (reduced) return <span className={className} aria-label={text}>{text}</span>
 
   const words = text.split(' ')
 
