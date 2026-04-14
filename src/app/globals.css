@@ -5,7 +5,7 @@
 @variant dark (&:is(.dark, .dark *));
 
 /* Scan @cy/ui source for Tailwind class names */
-@source "../node_modules/@cy/ui/src/**/*.{ts,tsx}";
+@source "../../node_modules/@cy/ui/src/**/*.{ts,tsx}";
 
 /* Map @cy/ui CSS variables → Tailwind v4 utilities */
 @theme inline {
