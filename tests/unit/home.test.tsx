@@ -15,9 +15,6 @@ vi.mock('@/components/effects/glow-card', () => ({
 vi.mock('@/components/effects/rotating-text', () => ({
   RotatingText: ({ items }: { items: string[] }) => <span>{items[0]}</span>,
 }))
-vi.mock('@/components/effects/count-up', () => ({
-  CountUp: ({ to, suffix }: { to: number; suffix?: string }) => <span>{to}{suffix}</span>,
-}))
 
 describe('HomePage', () => {
   it('renders hero name', () => {

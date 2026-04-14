@@ -19,6 +19,7 @@ export function HobbiesTeaserCard() {
           </div>
           <Link
             href="/hobbies"
+            aria-label="Explore hobbies"
             className="mt-4 inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground transition-colors"
           >
             Explore <ArrowRight className="h-3 w-3" />
