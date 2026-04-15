@@ -12,7 +12,7 @@ vi.mock('@/components/effects/glow-card', () => ({
 describe('ProjectsPage', () => {
   it('renders heading', () => {
     render(<ProjectsPage />)
-    expect(screen.getByRole('heading', { name: /projects/i })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Projects')
   })
   it('renders all 7 projects', () => {
     render(<ProjectsPage />)
