@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Github, Linkedin } from 'lucide-react'
+import { Github, Linkedin, Mail } from 'lucide-react'
 
 export function Footer() {
   return (
@@ -9,6 +9,13 @@ export function Footer() {
           © {new Date().getFullYear()} Crawford Young
         </span>
         <div className="flex items-center gap-4">
+          <Link
+            href="mailto:crawfordyoung248@gmail.com"
+            aria-label="Email"
+            className="text-muted-foreground hover:text-foreground transition-colors"
+          >
+            <Mail className="h-4 w-4" />
+          </Link>
           <Link
             href="https://github.com/Crawford-Young"
             target="_blank"

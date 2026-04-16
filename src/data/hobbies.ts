@@ -144,7 +144,7 @@ export const hobbies: Hobby[] = [
     description:
       "Writing is how I process things. Philosophy is why I think it matters. Camus in particular — absurdism as optimism rather than despair.",
     accentColor: 'rgba(168, 85, 247, 0.15)',
-    photo: '/writing.jpg',
+    photo: '/profilePic.jpg',
     details: [
       {
         id: 'stories',

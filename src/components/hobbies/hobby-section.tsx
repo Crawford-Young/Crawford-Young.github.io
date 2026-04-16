@@ -1,22 +1,25 @@
 'use client'
 
+import Image from 'next/image'
+import { useState } from 'react'
 import { cn } from '@/lib/utils'
+import { HobbyDetailCard } from './hobby-detail-card'
 import type { Hobby } from '@/types'
 
 export function HobbySection({ hobby, reverse = false }: { hobby: Hobby; reverse?: boolean }) {
+  const [imgError, setImgError] = useState(false)
+
   return (
     <section
       className={cn(
         'relative rounded-2xl border border-border/60 overflow-hidden',
-        'flex flex-col md:flex-row items-center gap-8 p-8 md:p-10',
+        'flex flex-col md:flex-row items-start gap-8 p-8 md:p-10',
         'bg-surface/40 backdrop-blur-md',
         'motion-safe:transition-shadow motion-safe:duration-300',
         'hover:border-border hover:shadow-lg hover:shadow-black/20',
         reverse && 'md:flex-row-reverse'
       )}
-      style={{
-        boxShadow: `0 1px 0 0 ${hobby.accentColor} inset`,
-      }}
+      style={{ boxShadow: `0 1px 0 0 ${hobby.accentColor} inset` }}
     >
       {/* Accent top strip */}
       <div
@@ -25,17 +28,36 @@ export function HobbySection({ hobby, reverse = false }: { hobby: Hobby; reverse
         style={{ background: `linear-gradient(90deg, transparent, ${hobby.accentColor}, transparent)` }}
       />
 
-      {/* Image placeholder — replace src with real photo later */}
-      <div
-        className="w-full md:w-56 h-44 md:h-56 rounded-xl border border-border/50 flex items-center justify-center shrink-0"
-        style={{ background: `radial-gradient(ellipse at center, ${hobby.accentColor}, transparent 70%)` }}
-      >
-        <p className="text-xs text-muted-foreground/40 select-none">Photo coming soon</p>
+      {/* Photo */}
+      <div className="w-full md:w-56 h-44 md:h-56 rounded-xl border border-border/50 overflow-hidden shrink-0">
+        {hobby.photo && !imgError ? (
+          <Image
+            src={hobby.photo}
+            alt={hobby.title}
+            width={224}
+            height={224}
+            className="w-full h-full object-cover"
+            onError={() => setImgError(true)}
+          />
+        ) : (
+          <div
+            className="w-full h-full"
+            style={{ background: `radial-gradient(ellipse at center, ${hobby.accentColor}, transparent 70%)` }}
+          />
+        )}
       </div>
 
       <div className="flex-1 min-w-0">
         <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-3">{hobby.title}</h2>
-        <p className="text-muted-foreground leading-relaxed text-sm md:text-base">{hobby.description}</p>
+        <p className="text-muted-foreground leading-relaxed text-sm md:text-base mb-5">{hobby.description}</p>
+
+        {hobby.details.length > 0 && (
+          <div className="flex flex-wrap gap-2">
+            {hobby.details.map(detail => (
+              <HobbyDetailCard key={detail.id} detail={detail} accentColor={hobby.accentColor} />
+            ))}
+          </div>
+        )}
       </div>
     </section>
   )

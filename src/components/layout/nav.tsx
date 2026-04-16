@@ -11,7 +11,6 @@ const NAV_LINKS = [
   { href: '/projects', label: 'Projects' },
   { href: '/hobbies', label: 'Hobbies' },
   { href: '/experience', label: 'Experience' },
-  { href: '/#contact', label: 'Contact' },
 ]
 
 export function PillNav() {
@@ -33,7 +32,7 @@ export function PillNav() {
   }, [open])
 
   const isActive = (href: string) =>
-    href === '/' || href === '/#contact' ? pathname === '/' : pathname.startsWith(href)
+    href === '/' ? pathname === '/' : pathname.startsWith(href)
 
   return (
     <>
