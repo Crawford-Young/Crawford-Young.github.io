@@ -7,10 +7,10 @@ import type { Project } from '@/types'
 export function ProjectCard({ project }: { project: Project }) {
   return (
     <GlowCard className="h-full">
-      <Card className="h-full bg-surface border-border group">
+      <Card className="h-full bg-surface/40 backdrop-blur-md border-border/60 hover:border-border transition-colors group">
         <CardContent className="p-6 flex flex-col gap-4 h-full">
           <div className="flex items-start justify-between">
-            <h2 className="font-semibold text-foreground tracking-tight text-sm leading-snug pr-4">
+            <h2 className="font-semibold text-foreground tracking-tight text-base leading-snug pr-4">
               {project.title}
             </h2>
             <Link href={`/projects/${project.slug}`} aria-label={`View ${project.title}`} className="shrink-0">
