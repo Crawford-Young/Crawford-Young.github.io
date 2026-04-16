@@ -27,9 +27,19 @@ export type Education = {
   activities?: string[]
 }
 
+export type HobbyDetail = {
+  id: string
+  icon: string       // Lucide icon name (PascalCase), resolved to a component at render time
+  label: string      // always-visible card text
+  detail?: string    // expanded body text — omit for link-only cards
+  href?: string      // when present the card is a link, not an expander
+}
+
 export type Hobby = {
   id: string
   title: string
   description: string
   accentColor: string
+  photo: string          // public-dir path, e.g. '/outdoors.jpeg'
+  details: HobbyDetail[]
 }
