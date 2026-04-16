@@ -4,6 +4,8 @@ import { GeistMono } from 'geist/font/mono'
 import { ThemeProvider } from '@/components/layout/theme-provider'
 import { PillNav } from '@/components/layout/nav'
 import { Footer } from '@/components/layout/footer'
+import { Analytics } from '@vercel/analytics/react'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -25,6 +27,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <main className="pt-16 md:pt-20">{children}</main>
           <Footer />
         </ThemeProvider>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )
