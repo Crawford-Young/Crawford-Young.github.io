@@ -22,13 +22,29 @@ describe('experience', () => {
 })
 
 describe('hobbies', () => {
-  it('has 4 hobbies', () => expect(hobbies).toHaveLength(4))
-  it('each hobby has id, title, description, accentColor', () => {
+  it('has 5 hobbies', () => expect(hobbies).toHaveLength(5))
+  it('each hobby has required scalar fields', () => {
     for (const h of hobbies) {
       expect(h.id).toBeTruthy()
       expect(h.title).toBeTruthy()
       expect(h.description).toBeTruthy()
       expect(h.accentColor).toBeTruthy()
+      expect(h.photo).toMatch(/^\//)
+    }
+  })
+  it('each hobby has at least one detail card', () => {
+    for (const h of hobbies) {
+      expect(h.details.length).toBeGreaterThanOrEqual(1)
+    }
+  })
+  it('each detail card has id, icon, label, and either detail or href', () => {
+    for (const h of hobbies) {
+      for (const d of h.details) {
+        expect(d.id).toBeTruthy()
+        expect(d.icon).toBeTruthy()
+        expect(d.label).toBeTruthy()
+        expect(d.detail || d.href).toBeTruthy()
+      }
     }
   })
 })
