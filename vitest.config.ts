@@ -11,7 +11,7 @@ export default defineConfig({
     include: ['tests/unit/**/*.test.{ts,tsx}'],
     coverage: {
       provider: 'v8',
-      include: ['src/lib/**/*.{ts,tsx}', 'src/data/**/*.{ts,tsx}'],
+      include: ['src/lib/**/*.{ts,tsx}', 'src/data/**/*.{ts,tsx}', 'src/server/**/*.{ts,tsx}'],
       thresholds: { statements: 100, branches: 100, functions: 100, lines: 100 },
     },
   },
