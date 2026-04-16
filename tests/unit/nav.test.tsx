@@ -6,7 +6,7 @@ import { PillNav } from '@/components/layout/nav'
 vi.mock('next/navigation', () => ({ usePathname: () => '/' }))
 
 describe('PillNav', () => {
-  it('renders the 5 nav links with correct hrefs', () => {
+  it('renders the 4 nav links with correct hrefs', () => {
     render(<PillNav />)
     const homeLinks = screen.getAllByRole('link', { name: 'Home' })
     expect(homeLinks[0]).toHaveAttribute('href', '/')
@@ -16,8 +16,7 @@ describe('PillNav', () => {
     expect(hobbiesLinks[0]).toHaveAttribute('href', '/hobbies')
     const experienceLinks = screen.getAllByRole('link', { name: 'Experience' })
     expect(experienceLinks[0]).toHaveAttribute('href', '/experience')
-    const contactLinks = screen.getAllByRole('link', { name: 'Contact' })
-    expect(contactLinks[0]).toHaveAttribute('href', '/#contact')
+    expect(screen.queryByRole('link', { name: 'Contact' })).not.toBeInTheDocument()
   })
 
   it('hamburger button opens and closes the mobile overlay', async () => {
