@@ -58,7 +58,7 @@ export function PillNav() {
       </header>
 
       {/* Mobile top bar */}
-      <header className="fixed top-0 inset-x-0 z-50 flex md:hidden items-center justify-between px-5 py-4 bg-background/80 backdrop-blur-md border-b border-border">
+      <header className="fixed top-0 inset-x-0 z-50 flex md:hidden items-center justify-between px-5 py-4 bg-background/50 backdrop-blur-xl border-b border-border/60">
         <span className="text-sm font-bold tracking-tight">CY</span>
         <button
           aria-label={open ? 'Close menu' : 'Open menu'}

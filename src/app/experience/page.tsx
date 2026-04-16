@@ -12,6 +12,7 @@ export const metadata: Metadata = {
 export default function ExperiencePage() {
   return (
     <div className="mx-auto max-w-3xl px-6 py-16">
+      <p className="text-xs font-semibold tracking-[0.2em] uppercase text-accent mb-3">Career &amp; education</p>
       <h1 className="text-4xl md:text-5xl font-bold tracking-[-0.03em] mb-3">Experience</h1>
       <p className="text-muted-foreground mb-14">Where I&apos;ve worked and what I&apos;ve built.</p>
 

@@ -13,7 +13,7 @@ export function WorkTimelineItem({ item, isLast = false }: { item: WorkExperienc
       <div className={cn('flex-1', isLast ? 'pb-0' : 'pb-10')}>
         <div className="flex items-start justify-between gap-4 flex-wrap">
           <div>
-            <h3 className="font-semibold text-foreground tracking-tight">{item.company}</h3>
+            <h3 className="font-bold text-foreground tracking-tight">{item.company}</h3>
             <p className="text-sm text-muted-foreground">{item.role}</p>
           </div>
           <div className="flex flex-col items-end gap-1 shrink-0">
@@ -23,7 +23,7 @@ export function WorkTimelineItem({ item, isLast = false }: { item: WorkExperienc
         </div>
         <p className="text-xs text-muted-foreground mt-1">{item.location}</p>
         {item.stats && (
-          <div className="flex gap-8 mt-4 mb-3">
+          <div className="rounded-lg border border-border/30 bg-surface/30 px-4 py-3 inline-flex gap-8 mt-4 mb-3">
             {item.stats.map(s => (
               <div key={s.label}>
                 <p className="text-2xl font-bold text-accent">

@@ -4,7 +4,7 @@ import { Aurora } from '@/components/effects/aurora'
 
 export function Hero() {
   return (
-    <section className="relative min-h-[88vh] flex items-center justify-center overflow-hidden">
+    <section className="-mt-16 md:-mt-20 relative min-h-screen overflow-hidden flex flex-col">
       <Aurora intensity="subtle" />
 
       {/* Fine grid overlay */}
@@ -20,7 +20,11 @@ export function Hero() {
         }}
       />
 
-      <div className="relative z-10 flex flex-col items-center text-center px-6 gap-7">
+      {/* Nav clearance — pushes content below the fixed nav */}
+      <div className="relative z-10 shrink-0 h-16 md:h-20" aria-hidden="true" />
+
+      {/* Content centered in the remaining viewport space */}
+      <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-6 gap-7 py-12">
         {/* Avatar */}
         <div className="relative w-28 h-28 md:w-36 md:h-36 rounded-full overflow-hidden ring-1 ring-border shadow-2xl shadow-black/50">
           <Image
