@@ -15,6 +15,9 @@ vi.mock('@/components/effects/glow-card', () => ({
 vi.mock('@/components/effects/rotating-text', () => ({
   RotatingText: ({ items }: { items: string[] }) => <span>{items[0]}</span>,
 }))
+vi.mock('@/components/home/github-stats-card', () => ({
+  GitHubStatsCard: () => <div data-testid="github-stats-card" />,
+}))
 
 describe('HomePage', () => {
   it('renders hero name', () => {
