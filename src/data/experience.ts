@@ -21,7 +21,7 @@ export const workExperience: WorkExperience[] = [
     location: 'Remote',
     type: 'Internship',
     bullets: [
-      'Implemented a journal entry management feature categorising entries into a dynamic to-do list, boosting accountants\' efficiency by 200%.',
+      "Implemented a journal entry management feature categorising entries into a dynamic to-do list, boosting accountants' efficiency by 200%.",
       'Developed full-stack features using React, TypeScript, Zustand, TanStack Query, and MongoDB integrated with AWS Lambda — supporting 1,000+ accounting teams.',
       'Built interactive dashboards with ApexCharts and Flow UI, improving financial data visibility across multiple reporting cycles.',
       'Conducted peer code reviews and collaborated in Agile sprint planning with a cross-functional team of 12.',
@@ -52,9 +52,7 @@ export const workExperience: WorkExperience[] = [
     period: 'Jun 2023 – Aug 2023',
     location: 'Black Mountain, NC · On-site',
     type: 'Seasonal',
-    bullets: [
-      'Trained twelve 16+ year-olds in leadership, mentorship, and staff operations.',
-    ],
+    bullets: ['Trained twelve 16+ year-olds in leadership, mentorship, and staff operations.'],
   },
   {
     id: 'pure-taqueria',

@@ -18,7 +18,9 @@ export function CommunityCard() {
         <CardContent className="p-6 flex flex-col gap-4">
           <div className="flex items-center gap-2">
             <Users className="h-3.5 w-3.5 text-accent" />
-            <p className="text-[10px] font-semibold text-accent uppercase tracking-[0.15em]">Community</p>
+            <p className="text-[10px] font-semibold text-accent uppercase tracking-[0.15em]">
+              Community
+            </p>
           </div>
           <div className="text-xl font-bold text-foreground tracking-tight min-h-[1.75rem]">
             <RotatingText items={ROLES} />

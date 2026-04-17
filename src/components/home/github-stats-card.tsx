@@ -24,7 +24,9 @@ export async function GitHubStatsCard() {
         <CardContent className="p-6 flex flex-col gap-4">
           <div className="flex items-center gap-2">
             <Github className="h-3.5 w-3.5 text-accent" />
-            <p className="text-[10px] font-semibold text-accent uppercase tracking-[0.15em]">GitHub</p>
+            <p className="text-[10px] font-semibold text-accent uppercase tracking-[0.15em]">
+              GitHub
+            </p>
           </div>
           <div className="flex gap-6">
             {stats.map(({ label, value }) => (
@@ -35,7 +37,7 @@ export async function GitHubStatsCard() {
             ))}
           </div>
           <div className="flex flex-wrap gap-1.5">
-            {BADGES.map(b => (
+            {BADGES.map((b) => (
               <span
                 key={b}
                 className="text-xs bg-surface-raised text-muted-foreground px-2 py-0.5 rounded-full border border-border"

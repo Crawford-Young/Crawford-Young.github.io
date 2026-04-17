@@ -17,7 +17,7 @@ export function RotatingText({ items, interval = 2500, className }: RotatingText
 
   useEffect(() => {
     if (reduced) return
-    const id = setInterval(() => setIndex(i => (i + 1) % items.length), interval)
+    const id = setInterval(() => setIndex((i) => (i + 1) % items.length), interval)
     return () => clearInterval(id)
   }, [items.length, interval, reduced])
 

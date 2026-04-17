@@ -43,13 +43,13 @@ export function Hero() {
 
         {/* Role */}
         <p className="text-base md:text-lg text-muted-foreground font-medium">
-          AI & Software Engineer{' '}
-          <span className="text-accent">@ Aderant</span>
+          AI & Software Engineer <span className="text-accent">@ Aderant</span>
         </p>
 
         {/* Tagline */}
         <p className="max-w-sm text-sm text-muted-foreground/80 leading-relaxed">
-          Building practical products at the intersection of modern web development and AI-driven workflows.
+          Building practical products at the intersection of modern web development and AI-driven
+          workflows.
         </p>
       </div>
     </section>

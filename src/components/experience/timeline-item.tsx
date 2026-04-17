@@ -3,7 +3,13 @@ import { CountUp } from '@/components/effects/count-up'
 import { cn } from '@/lib/utils'
 import type { WorkExperience, Education } from '@/types'
 
-export function WorkTimelineItem({ item, isLast = false }: { item: WorkExperience; isLast?: boolean }) {
+export function WorkTimelineItem({
+  item,
+  isLast = false,
+}: {
+  item: WorkExperience
+  isLast?: boolean
+}) {
   return (
     <div className="relative flex gap-6">
       <div className="flex flex-col items-center">
@@ -17,14 +23,16 @@ export function WorkTimelineItem({ item, isLast = false }: { item: WorkExperienc
             <p className="text-sm text-muted-foreground">{item.role}</p>
           </div>
           <div className="flex flex-col items-end gap-1 shrink-0">
-            <Badge variant="secondary" className="text-xs">{item.type}</Badge>
+            <Badge variant="secondary" className="text-xs">
+              {item.type}
+            </Badge>
             <span className="text-xs text-muted-foreground">{item.period}</span>
           </div>
         </div>
         <p className="text-xs text-muted-foreground mt-1">{item.location}</p>
         {item.stats && (
           <div className="rounded-lg border border-border/30 bg-surface/30 px-4 py-3 inline-flex gap-8 mt-4 mb-3">
-            {item.stats.map(s => (
+            {item.stats.map((s) => (
               <div key={s.label}>
                 <p className="text-2xl font-bold text-accent">
                   <CountUp to={s.value} suffix={s.suffix} />
@@ -49,7 +57,13 @@ export function WorkTimelineItem({ item, isLast = false }: { item: WorkExperienc
   )
 }
 
-export function EducationTimelineItem({ item, isLast = false }: { item: Education; isLast?: boolean }) {
+export function EducationTimelineItem({
+  item,
+  isLast = false,
+}: {
+  item: Education
+  isLast?: boolean
+}) {
   return (
     <div className="relative flex gap-6">
       <div className="flex flex-col items-center">
@@ -66,14 +80,16 @@ export function EducationTimelineItem({ item, isLast = false }: { item: Educatio
         </div>
         {item.achievements && (
           <div className="flex flex-wrap gap-1.5 mt-3">
-            {item.achievements.map(a => (
-              <Badge key={a} variant="outline" className="text-xs">{a}</Badge>
+            {item.achievements.map((a) => (
+              <Badge key={a} variant="outline" className="text-xs">
+                {a}
+              </Badge>
             ))}
           </div>
         )}
         {item.activities && (
           <ul className="mt-3 space-y-1">
-            {item.activities.map(a => (
+            {item.activities.map((a) => (
               <li key={a} className="text-xs text-muted-foreground flex gap-2">
                 <span className="text-accent">–</span> {a}
               </li>

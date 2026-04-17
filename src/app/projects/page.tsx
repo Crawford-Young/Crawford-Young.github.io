@@ -13,7 +13,9 @@ export default function ProjectsPage() {
     <div className="mx-auto max-w-5xl px-6 py-16">
       <Spotlight className="rounded-2xl mb-12">
         <div className="py-12 px-2">
-          <p className="text-xs font-semibold tracking-[0.2em] uppercase text-accent mb-3">Selected work</p>
+          <p className="text-xs font-semibold tracking-[0.2em] uppercase text-accent mb-3">
+            Selected work
+          </p>
           <h1 className="text-4xl md:text-5xl font-bold tracking-[-0.03em]">Projects</h1>
           <p className="mt-3 text-muted-foreground max-w-md">
             Component libraries, AI tools, web experiments, and things built for fun.
@@ -21,7 +23,9 @@ export default function ProjectsPage() {
         </div>
       </Spotlight>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {projects.map(p => <ProjectCard key={p.slug} project={p} />)}
+        {projects.map((p) => (
+          <ProjectCard key={p.slug} project={p} />
+        ))}
       </div>
     </div>
   )

@@ -8,9 +8,9 @@ type AuroraIntensity = 'subtle' | 'medium' | 'strong'
 
 const COLOR_MAP: Record<AuroraColor, [string, string, string]> = {
   emerald: ['16,185,129', '5,150,105', '16,185,129'],
-  indigo:  ['99,102,241', '79,70,229',  '99,102,241'],
-  amber:   ['245,158,11', '217,119,6',  '245,158,11'],
-  pink:    ['236,72,153', '219,39,119', '236,72,153'],
+  indigo: ['99,102,241', '79,70,229', '99,102,241'],
+  amber: ['245,158,11', '217,119,6', '245,158,11'],
+  pink: ['236,72,153', '219,39,119', '236,72,153'],
 }
 
 const OPACITY_MAP: Record<AuroraIntensity, { a: string; b: string; c: string }> = {
@@ -31,7 +31,10 @@ export function Aurora({ className, color = 'emerald', intensity = 'subtle' }: A
   const { a, b, c } = OPACITY_MAP[intensity]
 
   return (
-    <div className={cn('absolute inset-0 overflow-hidden pointer-events-none', className)} aria-hidden="true">
+    <div
+      className={cn('absolute inset-0 overflow-hidden pointer-events-none', className)}
+      aria-hidden="true"
+    >
       <div
         style={{
           position: 'absolute',

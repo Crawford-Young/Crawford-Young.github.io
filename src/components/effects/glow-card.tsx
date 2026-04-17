@@ -13,12 +13,15 @@ export function GlowCard({ children, className }: GlowCardProps) {
   const ref = useRef<HTMLDivElement>(null)
   const reduced = usePrefersReducedMotion()
 
-  const onMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
-    if (reduced || !ref.current) return
-    const rect = ref.current.getBoundingClientRect()
-    ref.current.style.setProperty('--gx', `${e.clientX - rect.left}px`)
-    ref.current.style.setProperty('--gy', `${e.clientY - rect.top}px`)
-  }, [reduced])
+  const onMouseMove = useCallback(
+    (e: React.MouseEvent<HTMLDivElement>) => {
+      if (reduced || !ref.current) return
+      const rect = ref.current.getBoundingClientRect()
+      ref.current.style.setProperty('--gx', `${e.clientX - rect.left}px`)
+      ref.current.style.setProperty('--gy', `${e.clientY - rect.top}px`)
+    },
+    [reduced]
+  )
 
   const onMouseLeave = useCallback(() => {
     ref.current?.style.removeProperty('--gx')
@@ -38,7 +41,8 @@ export function GlowCard({ children, className }: GlowCardProps) {
           aria-hidden="true"
           className="absolute inset-0 rounded-[inherit] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
           style={{
-            background: 'radial-gradient(280px circle at var(--gx) var(--gy), rgba(16,185,129,0.13), transparent 70%)',
+            background:
+              'radial-gradient(280px circle at var(--gx) var(--gy), rgba(16,185,129,0.13), transparent 70%)',
           }}
         />
       )}

@@ -16,7 +16,11 @@ describe('Aurora', () => {
 
 describe('GlowCard', () => {
   it('renders children', () => {
-    render(<GlowCard><span>content</span></GlowCard>)
+    render(
+      <GlowCard>
+        <span>content</span>
+      </GlowCard>
+    )
     expect(screen.getByText('content')).toBeInTheDocument()
   })
 })
@@ -37,7 +41,11 @@ describe('RotatingText', () => {
 
 describe('Spotlight', () => {
   it('renders children', () => {
-    render(<Spotlight><p>inner</p></Spotlight>)
+    render(
+      <Spotlight>
+        <p>inner</p>
+      </Spotlight>
+    )
     expect(screen.getByText('inner')).toBeInTheDocument()
   })
 })

@@ -61,7 +61,7 @@ export function PillNav() {
         <span className="text-sm font-bold tracking-tight">CY</span>
         <button
           aria-label={open ? 'Close menu' : 'Open menu'}
-          onClick={() => setOpen(v => !v)}
+          onClick={() => setOpen((v) => !v)}
           className="p-1.5 rounded-lg hover:bg-surface-raised transition-colors"
         >
           {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}

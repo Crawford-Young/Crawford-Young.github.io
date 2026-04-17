@@ -3,7 +3,12 @@ import { render, screen } from '@testing-library/react'
 import ExperiencePage from '@/app/experience/page'
 
 vi.mock('@/components/effects/count-up', () => ({
-  CountUp: ({ to, suffix }: { to: number; suffix?: string }) => <span>{to}{suffix}</span>,
+  CountUp: ({ to, suffix }: { to: number; suffix?: string }) => (
+    <span>
+      {to}
+      {suffix}
+    </span>
+  ),
 }))
 
 describe('ExperiencePage', () => {
