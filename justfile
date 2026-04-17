@@ -11,6 +11,9 @@ typecheck:
     pnpm tsc --noEmit
 
 lint:
-    pnpm eslint .
+    pnpm eslint . && pnpm prettier --check .
 
-check: lint typecheck test
+format:
+    pnpm prettier --write .
+
+check: lint typecheck test build

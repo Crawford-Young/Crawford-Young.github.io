@@ -43,5 +43,10 @@ export function CountUp({ to, suffix = '', duration = 1400, className }: CountUp
     }
   }, [to, duration, reduced])
 
-  return <span ref={elRef} className={className}>{value}{suffix}</span>
+  return (
+    <span ref={elRef} className={className}>
+      {value}
+      {suffix}
+    </span>
+  )
 }

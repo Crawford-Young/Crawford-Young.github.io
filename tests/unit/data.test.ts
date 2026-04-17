@@ -18,7 +18,8 @@ describe('projects', () => {
 describe('experience', () => {
   it('first work entry is Aderant', () => expect(workExperience[0].company).toBe('Aderant'))
   it('has education entries', () => expect(education.length).toBeGreaterThan(0))
-  it('first education entry is Auburn University', () => expect(education[0].institution).toBe('Auburn University'))
+  it('first education entry is Auburn University', () =>
+    expect(education[0].institution).toBe('Auburn University'))
 })
 
 describe('hobbies', () => {

@@ -9,10 +9,16 @@ describe('Footer', () => {
   })
   it('has GitHub link', () => {
     render(<Footer />)
-    expect(screen.getByRole('link', { name: /github/i })).toHaveAttribute('href', 'https://github.com/Crawford-Young')
+    expect(screen.getByRole('link', { name: /github/i })).toHaveAttribute(
+      'href',
+      'https://github.com/Crawford-Young'
+    )
   })
   it('has LinkedIn link', () => {
     render(<Footer />)
-    expect(screen.getByRole('link', { name: /linkedin/i })).toHaveAttribute('href', 'https://www.linkedin.com/in/crawford-young/')
+    expect(screen.getByRole('link', { name: /linkedin/i })).toHaveAttribute(
+      'href',
+      'https://www.linkedin.com/in/crawford-young/'
+    )
   })
 })

@@ -8,8 +8,12 @@ export function RoleCard() {
       <Card className="h-full bg-surface border-border">
         <CardContent className="p-6 flex flex-col gap-4">
           <div className="flex items-start justify-between">
-            <p className="text-[10px] font-semibold text-accent uppercase tracking-[0.15em]">Currently</p>
-            <Badge variant="secondary" className="text-xs">Full-time</Badge>
+            <p className="text-[10px] font-semibold text-accent uppercase tracking-[0.15em]">
+              Currently
+            </p>
+            <Badge variant="secondary" className="text-xs">
+              Full-time
+            </Badge>
           </div>
           <div className="flex items-center gap-3">
             <div className="w-9 h-9 rounded-lg bg-surface-raised flex items-center justify-center border border-border shrink-0">
@@ -22,7 +26,8 @@ export function RoleCard() {
           </div>
           <p className="text-xs text-muted-foreground">Atlanta, GA · Hybrid · Dec 2025 – Present</p>
           <p className="text-xs text-muted-foreground leading-relaxed">
-            Building AI-powered features and frontend systems for legal practice management software.
+            Building AI-powered features and frontend systems for legal practice management
+            software.
           </p>
         </CardContent>
       </Card>

@@ -11,7 +11,10 @@ function mockMatchMedia(matches: boolean) {
     }),
     removeEventListener: vi.fn(),
   }
-  vi.stubGlobal('matchMedia', vi.fn(() => mq))
+  vi.stubGlobal(
+    'matchMedia',
+    vi.fn(() => mq)
+  )
   return { mq, listeners }
 }
 
@@ -41,7 +44,7 @@ describe('usePrefersReducedMotion', () => {
     const { result } = renderHook(() => usePrefersReducedMotion())
     expect(result.current).toBe(false)
     act(() => {
-      listeners.forEach(l => l({ matches: true } as MediaQueryListEvent))
+      listeners.forEach((l) => l({ matches: true } as MediaQueryListEvent))
     })
     expect(result.current).toBe(true)
   })

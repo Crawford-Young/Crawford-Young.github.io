@@ -14,17 +14,29 @@ export default function HomePage() {
       <Hero />
       <div className="mx-auto max-w-5xl px-6 pb-16">
         <BentoGrid>
-          <BentoCell span="wide"><AboutCard /></BentoCell>
-          <BentoCell><RoleCard /></BentoCell>
+          <BentoCell span="wide">
+            <AboutCard />
+          </BentoCell>
+          <BentoCell>
+            <RoleCard />
+          </BentoCell>
 
-          <BentoCell><CommunityCard /></BentoCell>
-          <BentoCell><FeaturedProjectCard /></BentoCell>
-          <BentoCell><HobbiesTeaserCard /></BentoCell>
+          <BentoCell>
+            <CommunityCard />
+          </BentoCell>
+          <BentoCell>
+            <FeaturedProjectCard />
+          </BentoCell>
+          <BentoCell>
+            <HobbiesTeaserCard />
+          </BentoCell>
 
           <BentoCell span="wide" id="contact">
             <ContactCard />
           </BentoCell>
-          <BentoCell><GitHubStatsCard /></BentoCell>
+          <BentoCell>
+            <GitHubStatsCard />
+          </BentoCell>
         </BentoGrid>
       </div>
     </>

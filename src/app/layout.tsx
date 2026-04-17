@@ -10,7 +10,8 @@ import './globals.css'
 
 export const metadata: Metadata = {
   title: { default: 'Crawford Young', template: '%s | Crawford Young' },
-  description: 'AI & Software Engineer building practical products at the intersection of modern web development and AI-driven workflows.',
+  description:
+    'AI & Software Engineer building practical products at the intersection of modern web development and AI-driven workflows.',
   metadataBase: new URL('https://crawford-young.vercel.app'),
 }
 

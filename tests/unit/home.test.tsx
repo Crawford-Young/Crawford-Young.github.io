@@ -3,7 +3,9 @@ import { render, screen } from '@testing-library/react'
 import HomePage from '@/app/page'
 
 vi.mock('next/image', () => ({
-  default: ({ alt, ...props }: { alt: string; [key: string]: unknown }) => <img alt={alt} {...props} />,
+  default: ({ alt, ...props }: { alt: string; [key: string]: unknown }) => (
+    <img alt={alt} {...props} />
+  ),
 }))
 vi.mock('@/components/effects/aurora', () => ({ Aurora: () => null }))
 vi.mock('@/components/effects/split-text', () => ({
@@ -30,7 +32,10 @@ describe('HomePage', () => {
   })
   it('has contact email link', () => {
     render(<HomePage />)
-    expect(screen.getByRole('link', { name: /email me/i })).toHaveAttribute('href', 'mailto:crawfordyoung248@gmail.com')
+    expect(screen.getByRole('link', { name: /email me/i })).toHaveAttribute(
+      'href',
+      'mailto:crawfordyoung248@gmail.com'
+    )
   })
   it('has link to hobbies', () => {
     render(<HomePage />)

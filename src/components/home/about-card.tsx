@@ -7,7 +7,9 @@ export function AboutCard() {
       <Card className="h-full bg-surface border-border">
         <CardContent className="p-6 h-full flex flex-col justify-between gap-4">
           <div>
-            <p className="text-[10px] font-semibold text-accent uppercase tracking-[0.15em] mb-4">About</p>
+            <p className="text-[10px] font-semibold text-accent uppercase tracking-[0.15em] mb-4">
+              About
+            </p>
             <p className="text-sm text-muted-foreground leading-[1.7]">
               Software engineer focused on building practical products that combine modern web
               development with AI-driven workflows. Frontend-first — React, TypeScript, Next.js —

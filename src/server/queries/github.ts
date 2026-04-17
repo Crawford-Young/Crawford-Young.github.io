@@ -13,7 +13,7 @@ export async function getGitHubProfile(): Promise<{ repos: number; followers: nu
     headers: authHeaders(),
     next: { revalidate: 3600 },
   })
-  const data = await res.json() as { public_repos: number; followers: number }
+  const data = (await res.json()) as { public_repos: number; followers: number }
   return { repos: data.public_repos, followers: data.followers }
 }
 
@@ -22,6 +22,6 @@ export async function getGitHubStars(): Promise<{ stars: number }> {
     headers: authHeaders(),
     next: { revalidate: 3600 },
   })
-  const repos = await res.json() as { stargazers_count: number }[]
+  const repos = (await res.json()) as { stargazers_count: number }[]
   return { stars: repos.reduce((sum, r) => sum + r.stargazers_count, 0) }
 }
