@@ -33,6 +33,12 @@ describe('getGitHubProfile', () => {
     const result = await getGitHubProfile()
     expect(result).toEqual({ repos: 15, followers: 42 })
   })
+
+  it('returns zeros when the response is not ok', async () => {
+    mockFetch.mockResolvedValueOnce({ ok: false })
+    const result = await getGitHubProfile()
+    expect(result).toEqual({ repos: 0, followers: 0 })
+  })
 })
 
 describe('getGitHubStars', () => {
@@ -73,6 +79,21 @@ describe('getGitHubStars', () => {
     mockFetch.mockResolvedValueOnce({
       ok: true,
       json: async () => [],
+    })
+    const result = await getGitHubStars()
+    expect(result).toEqual({ stars: 0 })
+  })
+
+  it('returns zero stars when the response is not ok', async () => {
+    mockFetch.mockResolvedValueOnce({ ok: false })
+    const result = await getGitHubStars()
+    expect(result).toEqual({ stars: 0 })
+  })
+
+  it('returns zero stars when the response is not an array', async () => {
+    mockFetch.mockResolvedValueOnce({
+      ok: true,
+      json: async () => ({ message: 'API rate limit exceeded' }),
     })
     const result = await getGitHubStars()
     expect(result).toEqual({ stars: 0 })
