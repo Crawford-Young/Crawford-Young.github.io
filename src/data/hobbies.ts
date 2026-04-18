@@ -119,15 +119,13 @@ export const hobbies: Hobby[] = [
         id: 'val',
         icon: 'Crosshair',
         label: 'Valorant',
-        detail:
-          'Ascendant. Mostly play duelists. My aim is fine; my game sense needs work.',
+        detail: 'Ascendant. Mostly play duelists. My aim is fine; my game sense needs work.',
       },
       {
         id: 'ow',
         icon: 'Shield',
         label: 'Overwatch',
-        detail:
-          "Diamond. I main support when the team needs it, DPS when it doesn't.",
+        detail: "Diamond. I main support when the team needs it, DPS when it doesn't.",
       },
       {
         id: 'indie',
@@ -142,7 +140,7 @@ export const hobbies: Hobby[] = [
     id: 'writing',
     title: 'Writing & Philosophy',
     description:
-      "Writing is how I process things. Philosophy is why I think it matters. Camus in particular — absurdism as optimism rather than despair.",
+      'Writing is how I process things. Philosophy is why I think it matters. Camus in particular — absurdism as optimism rather than despair.',
     accentColor: 'rgba(168, 85, 247, 0.15)',
     photo: '/profilePic.jpg',
     details: [
@@ -164,8 +162,7 @@ export const hobbies: Hobby[] = [
         id: 'camus',
         icon: 'Quote',
         label: 'Favourite Quote',
-        detail:
-          '"In the midst of winter I found there was within me an invincible summer."',
+        detail: '"In the midst of winter I found there was within me an invincible summer."',
       },
       {
         id: 'substack',

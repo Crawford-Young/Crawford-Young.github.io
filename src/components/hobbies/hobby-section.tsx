@@ -25,7 +25,9 @@ export function HobbySection({ hobby, reverse = false }: { hobby: Hobby; reverse
       <div
         aria-hidden="true"
         className="absolute top-0 left-0 right-0 h-px opacity-80"
-        style={{ background: `linear-gradient(90deg, transparent, ${hobby.accentColor}, transparent)` }}
+        style={{
+          background: `linear-gradient(90deg, transparent, ${hobby.accentColor}, transparent)`,
+        }}
       />
 
       {/* Photo */}
@@ -42,18 +44,22 @@ export function HobbySection({ hobby, reverse = false }: { hobby: Hobby; reverse
         ) : (
           <div
             className="w-full h-full"
-            style={{ background: `radial-gradient(ellipse at center, ${hobby.accentColor}, transparent 70%)` }}
+            style={{
+              background: `radial-gradient(ellipse at center, ${hobby.accentColor}, transparent 70%)`,
+            }}
           />
         )}
       </div>
 
       <div className="flex-1 min-w-0">
         <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-3">{hobby.title}</h2>
-        <p className="text-muted-foreground leading-relaxed text-sm md:text-base mb-5">{hobby.description}</p>
+        <p className="text-muted-foreground leading-relaxed text-sm md:text-base mb-5">
+          {hobby.description}
+        </p>
 
         {hobby.details.length > 0 && (
           <div className="flex flex-wrap gap-2">
-            {hobby.details.map(detail => (
+            {hobby.details.map((detail) => (
               <HobbyDetailCard key={detail.id} detail={detail} accentColor={hobby.accentColor} />
             ))}
           </div>

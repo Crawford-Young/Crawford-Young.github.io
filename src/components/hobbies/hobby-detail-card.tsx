@@ -3,17 +3,49 @@
 import { useState } from 'react'
 import { AnimatePresence, motion } from 'motion/react'
 import {
-  Trophy, Users, Waves, TreePine, Music, Guitar, Sparkles,
-  BarChart2, Sword, Rocket, Crosshair, Shield, Gamepad2,
-  Mic2, BookOpen, Feather, Quote, PenLine, ExternalLink,
+  Trophy,
+  Users,
+  Waves,
+  TreePine,
+  Music,
+  Guitar,
+  Sparkles,
+  BarChart2,
+  Sword,
+  Rocket,
+  Crosshair,
+  Shield,
+  Gamepad2,
+  Mic2,
+  BookOpen,
+  Feather,
+  Quote,
+  PenLine,
+  ExternalLink,
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import type { HobbyDetail } from '@/types'
 
 const ICONS: Record<string, React.ComponentType<{ className?: string }>> = {
-  Trophy, Users, Waves, TreePine, Music, Guitar, Sparkles,
-  BarChart2, Sword, Rocket, Crosshair, Shield, Gamepad2,
-  Mic2, BookOpen, Feather, Quote, PenLine, ExternalLink,
+  Trophy,
+  Users,
+  Waves,
+  TreePine,
+  Music,
+  Guitar,
+  Sparkles,
+  BarChart2,
+  Sword,
+  Rocket,
+  Crosshair,
+  Shield,
+  Gamepad2,
+  Mic2,
+  BookOpen,
+  Feather,
+  Quote,
+  PenLine,
+  ExternalLink,
 }
 
 interface HobbyDetailCardProps {
@@ -28,7 +60,7 @@ export function HobbyDetailCard({ detail, accentColor }: HobbyDetailCardProps) {
   const pillClass = cn(
     'inline-flex items-center gap-1.5 rounded-lg border px-3 py-2 text-sm text-left',
     'bg-surface/60 transition-colors duration-200',
-    'hover:border-border',
+    'hover:border-border'
   )
 
   if (detail.href) {
@@ -49,7 +81,7 @@ export function HobbyDetailCard({ detail, accentColor }: HobbyDetailCardProps) {
   return (
     <button
       type="button"
-      onClick={() => setIsOpen(v => !v)}
+      onClick={() => setIsOpen((v) => !v)}
       className={cn(pillClass, 'flex-col items-start')}
       style={{ borderColor: isOpen ? accentColor : undefined }}
       aria-expanded={isOpen}
