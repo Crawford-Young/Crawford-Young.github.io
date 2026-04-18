@@ -31,8 +31,7 @@ export function PillNav() {
     if (open) firstLinkRef.current?.focus()
   }, [open])
 
-  const isActive = (href: string) =>
-    href === '/' ? pathname === '/' : pathname.startsWith(href)
+  const isActive = (href: string) => (href === '/' ? pathname === '/' : pathname.startsWith(href))
 
   return (
     <>

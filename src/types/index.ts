@@ -29,10 +29,10 @@ export type Education = {
 
 export type HobbyDetail = {
   id: string
-  icon: string       // Lucide icon name (PascalCase), resolved to a component at render time
-  label: string      // always-visible card text
-  detail?: string    // expanded body text — omit for link-only cards
-  href?: string      // when present the card is a link, not an expander
+  icon: string // Lucide icon name (PascalCase), resolved to a component at render time
+  label: string // always-visible card text
+  detail?: string // expanded body text — omit for link-only cards
+  href?: string // when present the card is a link, not an expander
 }
 
 export type Hobby = {
@@ -40,6 +40,6 @@ export type Hobby = {
   title: string
   description: string
   accentColor: string
-  photo: string          // public-dir path, e.g. '/outdoors.jpeg'
+  photo: string // public-dir path, e.g. '/outdoors.jpeg'
   details: HobbyDetail[]
 }
