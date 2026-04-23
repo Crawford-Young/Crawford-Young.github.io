@@ -45,7 +45,7 @@ Personal portfolio site deployed on Vercel. No backend, no database, no auth. St
 Workspace DoD applies with these exceptions:
 
 - Storybook: **skip** — not applicable for a consumer app
-- Sentry: **skip** — no server-side errors to capture on a static portfolio
+- Sentry: **enabled** — client-side error monitoring, session replay, and tracing via `@sentry/nextjs`
 - Rate limiting: **skip** — no user-facing endpoints
 - Lighthouse Performance: **90+** (not 100) — `motion` animations affect score
 
