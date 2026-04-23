@@ -3,9 +3,19 @@ import { render, screen } from '@testing-library/react'
 import HomePage from '@/app/page'
 
 vi.mock('next/image', () => ({
-  default: ({ alt, ...props }: { alt: string; [key: string]: unknown }) => (
+  default: ({
+    alt,
+    fill,
+    priority,
+    ...props
+  }: {
+    alt: string
+    fill?: boolean
+    priority?: boolean
+    [key: string]: unknown
+  }) => (
     // eslint-disable-next-line @next/next/no-img-element
-    <img alt={alt} {...props} />
+    <img alt={alt} data-fill={fill} data-priority={priority} {...props} />
   ),
 }))
 vi.mock('@/components/effects/aurora', () => ({ Aurora: () => null }))
